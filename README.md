@@ -10,7 +10,9 @@
 - Android SDK & NDK Tools
 
 # 개발일지
-7월 12일 - 설정완료
+7월 12일 - 설정완료, 에셋 Import, 주인공 플레이어 생성
 
-# 배운것
-7월 12일 - 스프라이트 시트 자르는 방법
+# 기타
+필기 링크 : <a href="https://github.com/noblesswan/undead_survivor/blob/main/%ED%95%84%EA%B8%B0/Undead_Survivor%20%ED%95%84%EA%B8%B0.md" target="_blank"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white"/></a>   
+강의 링크 : <a href="https://www.youtube.com/playlist?list=PLO-mt5Iu5TeZF8xMHqtT_DhAPKmjF6i3x" target="_blank"> <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=YouTube&logoColor=white"/></a>
+
