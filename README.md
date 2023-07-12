@@ -10,7 +10,7 @@
 - Android SDK & NDK Tools
 
 # 개발일지
-7월 12일 - 설정완료
+7월 12일 - 설정완료, 에셋 Import, 주인공 플레이어 생성
 
 # 배운것
 필기 링크 : <a href="https://github.com/noblesswan/undead_survivor/blob/main/%ED%95%84%EA%B8%B0/Undead_Survivor%20%ED%95%84%EA%B8%B0.md" target="_blank"> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white"/></a>   
