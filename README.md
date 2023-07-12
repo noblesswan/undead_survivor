@@ -13,4 +13,5 @@
 7월 12일 - 설정완료
 
 # 배운것
-7월 12일 - 스프라이트 시트 자르는 방법
+<a href="https://github.com/noblesswan/undead_survivor/blob/main/%ED%95%84%EA%B8%B0/Undead_Survivor%20%ED%95%84%EA%B8%B0.md" target="_blank"> <img src="https://img.shields.io/badge/-181717?style=flat&logo=github&logoColor=white"/></a>   
+
