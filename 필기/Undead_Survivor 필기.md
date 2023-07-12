@@ -27,7 +27,6 @@ Player에게 그림자 스프라이트를 넣으려 할 때, 그림자가 캐릭
 
 <br>
 <br>
-<br>
 
 # 2강 - 이동
 
@@ -90,6 +89,9 @@ Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
 GetAxis - 자연스럽게 움직임을 보정해줌<br>
 GetAxisRaw - 움직임을 딱딱 끊어줌
 
+<br>
+<br>
+
 # 2강+ - Input System
 2강에서 Project Setting - Input Manager에서 값을 받아 사용했지만, 최근에는 Unity가 Input System을 사용해서 움직이는 방법을 구현해냈음 <br>
 Window - Package Manager - Unity Registry - Input System 다운로드 <br>
@@ -134,7 +136,6 @@ Processor - 인풋의 값을 후보정
 ```
 `OnMove`에서 `normalize`를 이미 하고 있기 때문에 해당 코드에서는 생략해도 된다.  
 
-<br>
 <br>
 <br>
 
