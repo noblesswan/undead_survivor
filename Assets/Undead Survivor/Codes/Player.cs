@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
+    Animator anim;
 
     // Start is called before the first frame update
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -50,5 +52,7 @@ public class Player : MonoBehaviour
         if (inputVec.x != 0) {
             spriter.flipX = inputVec.x < 0;
         }
+
+        anim.SetFloat("Speed", inputVec.magnitude);
     }
 }

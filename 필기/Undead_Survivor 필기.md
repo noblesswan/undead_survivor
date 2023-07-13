@@ -25,9 +25,6 @@
 ## Order in Layer
 Player에게 그림자 스프라이트를 넣으려 할 때, 그림자가 캐릭터 밑에 있어야 한다. 그렇기 때문에 캐릭터는 5 그림자는 0으로 설정해서 그림자를 뒤에 배치한다
 
-<br>
-<br>
-
 # 2강 - 이동
 
 ## 키보드 입력 받기
@@ -89,9 +86,6 @@ Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
 GetAxis - 자연스럽게 움직임을 보정해줌<br>
 GetAxisRaw - 움직임을 딱딱 끊어줌
 
-<br>
-<br>
-
 # 2강+ - Input System
 2강에서 Project Setting - Input Manager에서 값을 받아 사용했지만, 최근에는 Unity가 Input System을 사용해서 움직이는 방법을 구현해냈음 <br>
 Window - Package Manager - Unity Registry - Input System 다운로드 <br>
@@ -136,9 +130,6 @@ Processor - 인풋의 값을 후보정
 ```
 `OnMove`에서 `normalize`를 이미 하고 있기 때문에 해당 코드에서는 생략해도 된다.  
 
-<br>
-<br>
-
 # 3강 - 셀 애니메이션 제작
 ## 방향 바라보기
 Sprite Renderer - Flip X. <br>
@@ -158,4 +149,54 @@ Sprite Renderer - Flip X. <br>
 해당 코드에서 `spriter.flipX = inputVec.x < 0;`는 true or false 값만 받아야 한다. x축이 -로 됐을 때인데, 여기에 또 if문을 써야 하는가? 그렇지 않다. <br>
 만약 좌측 키를 누르고 있다면 -1이 되기 때문에 `inputVec.x < 0` 의 값은  true가 된다. true가 그대로 flipX에 들어간다. 우측은 +1인데, 0보다 크다. 그렇다면 `inputVec.x < 0` 식이 false, 즉 틀린 것이기 때문에 false가 flipX에 들어간다. 
 
+## 셀 애니메이션 설정
+<br>
+### 애니메이터
+애니메이션을 상태로 관리하는 컴포넌트
+<br>
+### 애니메이터 설정
+F2 눌러서 이름 변경 가능 <br>
+노란색 상태 : 게임 실행 시 가장 먼저 실행되는 상태 <br>
+Transition : 상태 이동을 어떻게 할 것인지 설정하는 통로 <br>
+Parameter : 상태변경을 위한 조건 (`float`, `int`, `bool`, `Triger`) <br>
+<br>
+Parameter 추가 시, 각 Transition의 Condition에 적용 
+![8067265d7559962712687e50f19950df.png](8067265d7559962712687e50f19950df.png)
+<br>
 
+Transition Duration : 2D이기 때문에 필요 없음. 3D에서는 부드럽게 전환해주는 역할을 함. <br>
+Has Exit Time : 즉시 상태 변경을 위해 체크 해제<br>
+![fc349335d2ecc2551e5eae9399e56b51.png](fc349335d2ecc2551e5eae9399e56b51.png)
+<br>
+
+Loop Time : 죽었을 때는 묘비 애니메이션이 반복될 필요가 없기에 체크 해제 
+<br>
+정리 : speed parameter를 해놓은 뒤 speed가 0.01 이상일 경우 애니메이션이 Stand에서 Run으로 옮겨간다
+<br>
+
+### 코드 작성
+```csharp
+// 변수생성
+Animator anim;
+
+// 초기화
+anim = GetComponent<Animator>();
+
+// 활용
+// SetFloat 첫 번째 인자 : parameter 이름
+// 두 번째 인자 반영할 float 값
+anim.SetFloat("Speed", inputVec.magnitude);
+```
+<br>
+inputVec의 값이 변경되는 것이 주안점이기 때문에 `magnitude`(Returns the length of this Vector)를 통해서 벡터의 순수한 크기 값만 받아온다. 
+<br>
+
+### 애니메이터 재활용
+Animator override Controller 생성 >  Controller에 AcPlayer 애니메이션을 덮어 씌우기<br>
+![6083a1383ab147ec32d95878ff416ae8.png](6083a1383ab147ec32d95878ff416ae8.png)
+<br>
+
+* Animator Override Controller : 애니메이션만 덮어 씌우는 에셋
+* override와 overload
+* override : 부모 클래스에 정의되어 있는 method 명을 자식 클래스에서 동일하게 작성하는 것. 동일한 이름 method 호출 시 자식 method가 호출됨
+* overload : 동일한 이름의 method를 받아서 parameter만 바꿔서 작성하는 것 
