@@ -147,6 +147,6 @@ Sprite Renderer - Flip X. <br>
 해당 코드를 작성하는 이유는 왼쪽으로 돌았을 때, 즉 x가 0보다 작을 때 flip을 통해 좌우반전을 시키기 위해서이다. 그러기 위해서 다음과 같이 코드를 작성했다. <br>
 `만약 x가 0보다 작다면, flipx를 뒤집어라`를 코드로 실현하기 위해서 x가 0이 아니라면, 즉 `inputVec.x`가 0이 아닐 경우, flipX를 체크해야한다. <br>
 해당 코드에서 `spriter.flipX = inputVec.x < 0;`는 true or false 값만 받아야 한다. x축이 -로 됐을 때인데, 여기에 또 if문을 써야 하는가? 그렇지 않다. <br>
-만약 좌측 키를 누르고 있다면 -1이 되기 때문에 `inputVec.x < 0` 의 값은  true가 된다. true가 그대로 flipX에 들어간다. 우측은 +1인데, 0보다 크다. 그렇다면 `inputVec.x < 0` 이 식은 틀린 것이기 때문에 false가 flipX에 들어간다. 
+만약 좌측 키를 누르고 있다면 -1이 되기 때문에 `inputVec.x < 0` 의 값은  true가 된다. true가 그대로 flipX에 들어간다. 우측은 +1인데, 0보다 크다. 그렇다면 `inputVec.x < 0` 식이 false, 즉 틀린 것이기 때문에 false가 flipX에 들어간다. 
 
 
